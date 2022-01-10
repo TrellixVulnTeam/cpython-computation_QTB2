@@ -1,3 +1,4 @@
-import example_.cy 
+print("Ni!")
 
-example_cy.test
+def is_flesh_wound():
+    return True
