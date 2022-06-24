@@ -14,7 +14,7 @@ int main()
     p = new (nothrow) int[i];
 
     if (p == nullptr)
-        cout << "Error: memory could not be allocated",
+        cout << "Error: memory could not be allocated";
     else
     {
         for (n=0; n < i; n++) {
