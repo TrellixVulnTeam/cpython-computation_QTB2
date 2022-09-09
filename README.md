@@ -169,7 +169,7 @@ Once the script is loaded, the name we’re looking for is retrieved using PyObj
 pValue = PyObject_CallObject(pFunc, pArgs);
 Upon return of the function, pValue is either NULL or it contains a reference to the return value of the function. Be sure to release the reference after examining the value.
 
-1.4. Extending Embedded Python
+ # Extending Embedded Python
 Until now, the embedded Python interpreter had no access to functionality from the application itself. The Python API allows this by extending the embedded interpreter. That is, the embedded interpreter gets extended with routines provided by the application. While it sounds complex, it is not so bad. Simply forget for a while that the application starts the Python interpreter. Instead, consider the application to be a set of subroutines, and write some glue code that gives Python access to those routines, just like you would write a normal Python extension. For example:
 
 static int numargs=0;
