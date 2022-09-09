@@ -209,28 +209,3 @@ import emb
 print("Number of arguments", emb.numargs())
 In a real application, the methods will expose an API of the application to Python.
 
-1.5. Embedding Python in C++
-It is also possible to embed Python in a C++ program; precisely how this is done will depend on the details of the C++ system used; in general you will need to write the main program in C++, and use the C++ compiler to compile and link your program. There is no need to recompile Python itself using C++.
-
-1.6. Compiling and Linking under Unix-like systems
-It is not necessarily trivial to find the right flags to pass to your compiler (and linker) in order to embed the Python interpreter into your application, particularly because Python needs to load library modules implemented as C dynamic extensions (.so files) linked against it.
-
-To find out the required compiler and linker flags, you can execute the pythonX.Y-config script which is generated as part of the installation process (a python3-config script may also be available). This script has several options, of which the following will be directly useful to you:
-
-pythonX.Y-config --cflags will give you the recommended flags when compiling:
-
-$ /opt/bin/python3.4-config --cflags
--I/opt/include/python3.4m -I/opt/include/python3.4m -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes
-pythonX.Y-config --ldflags will give you the recommended flags when linking:
-
-$ /opt/bin/python3.4-config --ldflags
--L/opt/lib/python3.4/config-3.4m -lpthread -ldl -lutil -lm -lpython3.4m -Xlinker -export-dynamic
-Note To avoid confusion between several Python installations (and especially between the system Python and your own compiled Python), it is recommended that you use the absolute path to pythonX.Y-config, as in the above example.
-If this procedure doesn’t work for you (it is not guaranteed to work for all Unix-like platforms; however, we welcome bug reports) you will have to read your system’s documentation about dynamic linking and/or examine Python’s Makefile (use sysconfig.get_makefile_filename() to find its location) and compilation options. In this case, the sysconfig module is a useful tool to programmatically extract the configuration values that you will want to combine together. For example:
-
->>>
->>> import sysconfig
->>> sysconfig.get_config_var('LIBS')
-'-lpthread -ldl  -lutil'
->>> sysconfig.get_config_var('LINKFORSHARED')
-'-Xlinker -export-dynamic'
