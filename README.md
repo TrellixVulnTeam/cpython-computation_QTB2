@@ -1,5 +1,11 @@
 # Embedding Python in Another Application
-The previous chapters discussed how to extend Python, that is, how to extend the functionality of Python by attaching a library of C functions to it. It is also possible to do it the other way around: enrich your C/C++ application by embedding Python in it. Embedding provides your application with the ability to implement some of the functionality of your application in Python rather than C or C++. This can be used for many purposes; one example would be to allow users to tailor the application to their needs by writing some scripts in Python. You can also use it yourself if some of the functionality can be written in Python more easily.
+CPython is the original Python implementation. It is the implementation you download from Python.org. People call it CPython to distinguish it from other, later, Python implementations, and to distinguish the implementation of the language engine from the Python programming language itself.
+
+The latter part is where your confusion comes from; you need to keep Python-the-language separate from whatever runs the Python code.
+
+CPython happens to be implemented in C. That is just an implementation detail, really. CPython compiles your Python code into bytecode (transparently) and interprets that bytecode in a evaluation loop.
+
+CPython is also the first to implement new features; Python-the-language development uses CPython as the base; other implementations follow.
 
 Embedding Python is similar to extending it, but not quite. The difference is that when you extend Python, the main program of the application is still the Python interpreter, while if you embed Python, the main program may have nothing to do with Python — instead, some parts of the application occasionally call the Python interpreter to run some Python code.
 
@@ -10,9 +16,6 @@ There are several different ways to call the interpreter: you can pass a string 
 See also
 Python/C API Reference Manual
 The details of Python’s C interface are given in this manual. A great deal of necessary information can be found here.
-
-1.1. Very High Level Embedding
-The simplest form of embedding Python is the use of the very high level interface. This interface is intended to execute a Python script without needing to interact with the application directly. This can for example be used to perform some operation on a file.
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
