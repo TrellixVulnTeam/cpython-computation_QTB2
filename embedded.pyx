@@ -2,7 +2,7 @@
 # distutils: sources = embedded_main.c
 # tag: py3only
 
-TEXT_TO_SAY = 'Hello from Python!'
+TEXT_TO_SAY = 'Hello from Python 3.10!'
 
 cdef public int say_hello_from_python() except -1:
     print(TEXT_TO_SAY)
