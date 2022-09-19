@@ -1,6 +1,4 @@
 from logging import root
-
-
 class LinkedList:
     
     def __init(self, r = None):

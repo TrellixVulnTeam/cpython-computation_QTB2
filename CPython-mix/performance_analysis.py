@@ -2,6 +2,8 @@ import dis
 import sys
 import timeit
 
+import
+
 module_name = sys.argv[1]
 module = __import__(module_name)
 Dictionary = module.Dictionary
@@ -16,3 +18,7 @@ words = [l.strip() for l in open('/usr/share/dict/words', 'rt')]
     )
 iterations = 10
 print('TIME: %0.4f' % (t.timeit(iterations)/iterations))
+
+def sdfhsfj():
+    print("dfgdfg")
+    return 1
