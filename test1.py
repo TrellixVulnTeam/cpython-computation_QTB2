@@ -1,12 +1,11 @@
-class Foo:
-    pass
+import unittest
+class MyTestCase(unittest.TestCase):
+    def test_something(self):
+        self.assertEqual(True, False)  # add assertion here
 
 
-
-class Bar(Foo):
-    attr = 100
-
-x = Bar()
+if __name__ == '__main__':
+    unittest.main()
 
 
 
